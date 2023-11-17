@@ -1,0 +1,43 @@
+class Employees(models.Model):
+    name=models.CharField(max_length=200)
+    department=models.CharField(max_length=200)
+    salary=models.PositiveIntegerField()
+    email=models.EmailField(unique=True)
+    age=models.PositiveIntegerField()
+    contact=models.CharField(max_length=12,null=True)
+
+ORM QUERIES for creating a new object
+>>>
+1.python manage.py shell
+>>>
+2.from crm.models import Employees
+>>>
+3.
+Employees.objects.create(name="adithya",department="hr",salary=56000,email="adithya@gmail.com",age=22,contact="test")
+ORM QUERY FROM FETCHING ALL RECORDS
+>>>
+qs=Employees.objects.all()
+
+ORM QUERIES FOR FETCHING A SPECIFIC Employee details
+>>>
+qs=Employees.objects.get(id=1)
+
+ORM QUERIES FOR FILTERING Employees RECORDS
+qs=Employees.objects.filter(department="hr")
+
+(qs=query set
+get=fetching only one value at a time)
+
+qs=Employees.objects.filter(salary__gte=45000)
+__gte>=greater than
+__lte<=
+__gt>
+__lt<
+
+>>orm query for excluding an object
+qs=Employee.objects.exclude(department="hr")
+
+
+
+
+
